@@ -16,6 +16,15 @@ EXPOSE 3000 4000
 
 WORKDIR /crossposter
 
+FROM python:3
+
+WORKDIR /usr/src/app
+
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
 COPY --from=node /usr/local/bin/node /usr/local/bin/node
 COPY --from=node /usr/local/lib/node_modules /usr/local/lib/node_modules
 COPY --from=node /usr/local/bin/npm /usr/local/bin/npm
