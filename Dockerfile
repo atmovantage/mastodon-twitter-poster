@@ -17,7 +17,6 @@ EXPOSE 3000 4000
 
 WORKDIR /crossposter
 
-COPY . .
 
 COPY --from=node /usr/local/bin/node /usr/local/bin/node
 COPY --from=node /usr/local/lib/node_modules /usr/local/lib/node_modules
