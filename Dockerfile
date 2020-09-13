@@ -17,8 +17,6 @@ EXPOSE 3000 4000
 
 WORKDIR /crossposter
 
-RUN pip install --no-cache-dir -r
-
 COPY . .
 
 COPY --from=node /usr/local/bin/node /usr/local/bin/node
