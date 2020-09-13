@@ -1,5 +1,6 @@
 FROM node:8.16-alpine as node
 FROM ruby:2.7-alpine
+FROM python:3
 
 LABEL maintainer="https://github.com/renatolond/mastodon-twitter-poster" \
       description="Crossposter to post statuses between Mastodon and Twitter"
@@ -16,12 +17,7 @@ EXPOSE 3000 4000
 
 WORKDIR /crossposter
 
-FROM python:3
-
-WORKDIR /usr/src/app
-
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r
 
 COPY . .
 
